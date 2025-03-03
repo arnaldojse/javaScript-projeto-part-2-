@@ -5,13 +5,25 @@
  function servae para criar uma função nesse casso a função verificarChute() que vai ser chamada pelo html todas as vezes que o botão for aperdado 
  function vrrificarChute(){esta e a forma escrita da functioin
   } 
-*/
 
-let titulo = document.querySelector('h1'); 
-titulo.innerHTML = 'Hora do desfio';
+_______________________________________________________________________________  
+ /*function exibirAlert(){
+    alert('Eu amo js')       apenas um exercicio
+}
+function somandoDoisNumeros() {
+  let numero1 = parseInt(prompt('informe o primeiro numero para a soma'));
+  let numero2 = parseInt(prompt('informe o segumdo numero para a soma'));
+  let total = numero1 + numero2 ;
+  alert(  total + ' = ' + numero1 + ' + ' + numero2 + '')
+} 
+  ______________________________________________________________________________*/
 
-let paragrafo = document.querySelector('p');
-paragrafo.innerHTML = 'selecione um numero de 1 até 10';
+function exibirNomeTela(tag, Texto){
+  let campo = document.querySelector(tag);
+  campo.innerHTML = Texto;
+}
+exibirNomeTela('h1', ' Hora do desfio ')
+exibirNomeTela('p', 'selecione um numero de 1 até 100')
 
 function verificarChute(){
     console.log('o botão foi clicado')
