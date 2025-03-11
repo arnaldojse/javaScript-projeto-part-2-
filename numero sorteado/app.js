@@ -9,6 +9,7 @@
 _______________________________________________________________________________  
  /*function exibirAlert(){
     alert('Eu amo js')       apenas um exercicio
+_______________________________________________________________________________    
 }
 function somandoDoisNumeros() {
   let numero1 = parseInt(prompt('informe o primeiro numero para a soma'));
@@ -18,13 +19,19 @@ function somandoDoisNumeros() {
 } 
   ______________________________________________________________________________*/
 
+let numeroSecreto = grrarNUmeroAleatorio();
+
 function exibirNomeTela(tag, Texto){
   let campo = document.querySelector(tag);
   campo.innerHTML = Texto;
 }
-exibirNomeTela('h1', ' Hora do desfio ')
-exibirNomeTela('p', 'selecione um numero de 1 até 100')
+exibirNomeTela('h1', ' Hora do desfio ');
+exibirNomeTela('p', 'selecione um numero de 1 até 100');
 
 function verificarChute(){
-    console.log('o botão foi clicado')
+    console.log(numeroSecreto);
+}
+
+function grrarNUmeroAleatorio() {
+    return parseInt(Math.random() * 10 + 1);
 }
