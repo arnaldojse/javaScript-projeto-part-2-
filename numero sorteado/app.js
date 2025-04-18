@@ -7,7 +7,8 @@
   } 
 (.value) no final do document.querySelect(parametro).VALUE faz com que apenas o valor referente a query selecionada seja selecionado   
 
-uma forma diferente de fazer uma comparação (condição ? valor_se_verdadeiro : valor_se_falso;)
+uma forma diferente de fazer uma comparação (condição ? valor_se_verdadeiro : valor_se_falso;) Se a condição for verdadeira: Retorna o valor antes dos dois pontos.
+Se a condição for falsa: Retorna o valor após os dois pontos.
 _______________________________________________________________________________  
  /*function exibirAlert(){
     alert('Eu amo js')       apenas exercicios
@@ -33,6 +34,20 @@ function media(a,b,c){
 }
 let resultado = media(4, 7, 10)
 console.log(resultado)
+==================================================
+function encontrarMaior(a, b) {
+  return a > b ? a : b;
+}
+
+let maiorNumero = encontrarMaior(15, 9);
+console.log(maiorNumero);
+==================================================
+function quadrado(numero) {
+  return numero * numero;
+}
+
+let resultado = quadrado(2);
+console.log(resultado); 
 _______________________________________________________________________________    
 }
 function somandoDoisNumeros() {
@@ -55,7 +70,17 @@ exibirNomeTela('p', 'selecione um numero de 1 até 10');
 function verificarChute(){
     let chute = document.querySelector('input').value
     console.log(chute == numeroSecreto)
-    console.log(numeroSecreto)
+    
+    if(chute == numeroSecreto){
+      exibirNomeTela('h1', 'acertou meu nobre')
+      exibirNomeTela('p', 'parabens você acertou o numero!!!')
+    }else{
+      if(numeroSecreto > chute){
+        exibirNomeTela('p', 'tente novamente, o numero secreto é maior')
+      }else{
+        exibirNomeTela('p', 'tente novamente, o numero secreto é menor')
+      }
+    }
 }
 
 function grrarNUmeroAleatorio() {
