@@ -58,31 +58,52 @@ function somandoDoisNumeros() {
 } 
   ______________________________________________________________________________*/
 
-let numeroSecreto = grrarNUmeroAleatorio();
-
-function exibirNomeTela(tag, Texto){
-  let campo = document.querySelector(tag);
-  campo.innerHTML = Texto;
-}
-exibirNomeTela('h1', ' Hora do desfio ');
-exibirNomeTela('p', 'selecione um numero de 1 até 10');
-
-function verificarChute(){
-    let chute = document.querySelector('input').value
-    console.log(chute == numeroSecreto)
-    
-    if(chute == numeroSecreto){
-      exibirNomeTela('h1', 'acertou meu nobre')
-      exibirNomeTela('p', 'parabens você acertou o numero!!!')
-    }else{
-      if(numeroSecreto > chute){
-        exibirNomeTela('p', 'tente novamente, o numero secreto é maior')
-      }else{
-        exibirNomeTela('p', 'tente novamente, o numero secreto é menor')
+  let numeroSecreto = gerarNumeroAleatorio();
+  let tentativas = 1;
+  let limiteTentativas = 5;
+  
+  function exibirNomeTela(tag, texto) {
+    let campo = document.querySelector(tag);
+    campo.innerHTML = texto;
+  }
+  
+  exibirNomeTela('h1', 'Hora do Desafio');
+  exibirNomeTela('p', 'Selecione um número de 1 até 10');
+  
+  function verificarChute() {
+    let chute = document.querySelector('input').value;
+  
+    if (chute == numeroSecreto) {
+      exibirNomeTela('h1', 'Acertou meu nobre');
+  
+      let contagemTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+      let mensagemTentativas = `Parabéns! Você acertou o número com ${tentativas} ${contagemTentativa}`;
+      exibirNomeTela('p', mensagemTentativas);
+  
+      desabilitarJogo(); 
+  
+    } else {
+      if (tentativas >= limiteTentativas) {
+        exibirNomeTela('h1', 'GAME OVER');
+        exibirNomeTela('p', `Você atingiu o limite máximo de ${limiteTentativas} tentativas. O número era ${numeroSecreto}`);
+        desabilitarJogo();
+      } else {
+        if (numeroSecreto > chute) {
+          exibirNomeTela('p', 'Tente novamente, o número secreto é MAIOR');
+        } else {
+          exibirNomeTela('p', 'Tente novamente, o número secreto é MENOR');
+        }
+  
+        tentativas++; 
       }
     }
-}
-
-function grrarNUmeroAleatorio() {
+  }
+  
+  function gerarNumeroAleatorio() {
     return parseInt(Math.random() * 10 + 1);
-}
+  }
+  
+  function desabilitarJogo() {
+    document.querySelector('input').disabled = true;
+    document.querySelector('button').disabled = true;
+  }
